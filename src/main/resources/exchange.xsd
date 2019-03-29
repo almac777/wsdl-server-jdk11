@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <xs:element name="exchangeCurrencyRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="request" type="tns:currencyRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="exchangeCurrencyResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="response" type="tns:currencyResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="currencyRequest">
+        <xs:sequence>
+            <xs:element name="fromCurrency" type="xs:string"/>
+            <xs:element name="fromCurrencyAmount" type="xs:float"/>
+            <xs:element name="toCurrency" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="currencyResponse">
+        <xs:sequence>
+            <xs:element name="toCurrency" type="xs:string"/>
+            <xs:element name="toCurrencyAmount" type="xs:float"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
