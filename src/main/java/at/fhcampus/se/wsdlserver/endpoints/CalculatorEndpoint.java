@@ -1,5 +1,9 @@
-package at.fhcampus.se.wsdlserver;
+package at.fhcampus.se.wsdlserver.endpoints;
 
+import at.fhcampus.se.wsdlserver.AddRequest;
+import at.fhcampus.se.wsdlserver.AddResponse;
+import at.fhcampus.se.wsdlserver.SubtractRequest;
+import at.fhcampus.se.wsdlserver.SubtractResponse;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;

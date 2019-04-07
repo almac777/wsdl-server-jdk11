@@ -1,5 +1,8 @@
-package at.fhcampus.se.wsdlserver;
+package at.fhcampus.se.wsdlserver.endpoints;
 
+import at.fhcampus.se.wsdlserver.CurrencyResponse;
+import at.fhcampus.se.wsdlserver.ExchangeCurrencyRequest;
+import at.fhcampus.se.wsdlserver.ExchangeCurrencyResponse;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;

@@ -1,4 +1,4 @@
-package at.fhcampus.se.wsdlserver;
+package at.fhcampus.se.wsdlserver.configs;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
