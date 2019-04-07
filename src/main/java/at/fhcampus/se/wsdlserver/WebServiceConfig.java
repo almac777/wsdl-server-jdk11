@@ -24,6 +24,16 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new ServletRegistrationBean(servlet, "/ws/*");
     }
 
+    @Bean
+    public XsdSchema exchangeSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("exchange.xsd"));
+    }
+
+    @Bean(name="calculatorSchema")
+    public XsdSchema webservice2Schema() {
+        return new SimpleXsdSchema(new ClassPathResource("calculator.xsd"));
+    }
+
     @Bean(name = "exchange")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema exchangeSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
@@ -34,11 +44,6 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return wsdl11Definition;
     }
 
-    @Bean
-    public XsdSchema exchangeSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("exchange.xsd"));
-    }
-
     @Bean(name = "calculator")
     public DefaultWsdl11Definition calculatorWsdl11Definition(XsdSchema calculatorSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
@@ -47,11 +52,6 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
         wsdl11Definition.setSchema(calculatorSchema);
         return wsdl11Definition;
-    }
-
-    @Bean(name="calculatorSchema")
-    public XsdSchema webservice2Schema() {
-        return new SimpleXsdSchema(new ClassPathResource("calculator.xsd"));
     }
 
 }
