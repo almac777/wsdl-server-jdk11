@@ -1,0 +1,50 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <xs:element name="addRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="inputRecord" type="tns:addType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="out" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="subtractRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="inputRecord" type="tns:subtractType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="subtractResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="out" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="addType">
+        <xs:sequence>
+            <xs:element name="firstNum" type="xs:int"/>
+            <xs:element name="secondNum" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="subtractType">
+        <xs:sequence>
+            <xs:element name="firstNum" type="xs:int"/>
+            <xs:element name="secondNum" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

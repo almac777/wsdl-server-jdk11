@@ -15,6 +15,7 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
+
     @Bean
     public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -24,17 +25,33 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     }
 
     @Bean(name = "exchange")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
+    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema exchangeSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("ExchangePort");
         wsdl11Definition.setLocationUri("/ws");
         wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
-        wsdl11Definition.setSchema(countriesSchema);
+        wsdl11Definition.setSchema(exchangeSchema);
         return wsdl11Definition;
     }
 
     @Bean
-    public XsdSchema countriesSchema() {
+    public XsdSchema exchangeSchema() {
         return new SimpleXsdSchema(new ClassPathResource("exchange.xsd"));
     }
+
+    @Bean(name = "calculator")
+    public DefaultWsdl11Definition calculatorWsdl11Definition(XsdSchema calculatorSchema) {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName("CalculatorPort");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
+        wsdl11Definition.setSchema(calculatorSchema);
+        return wsdl11Definition;
+    }
+
+    @Bean(name="calculatorSchema")
+    public XsdSchema webservice2Schema() {
+        return new SimpleXsdSchema(new ClassPathResource("calculator.xsd"));
+    }
+
 }

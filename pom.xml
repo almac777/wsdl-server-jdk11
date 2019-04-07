@@ -107,6 +107,10 @@
                             <xsd>${basedir}/src/main/resources/exchange.xsd</xsd>
                             <packagename>at.fhcampus.se.wsdlserver</packagename>
                         </xsdOption>
+                        <xsdOption>
+                            <xsd>${basedir}/src/main/resources/calculator.xsd</xsd>
+                            <packagename>at.fhcampus.se.wsdlserver</packagename>
+                        </xsdOption>
                     </xsdOptions>
                 </configuration>
             </plugin>
